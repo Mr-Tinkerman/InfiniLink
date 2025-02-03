@@ -1,8 +1,8 @@
 # InfiniLink (WIP)
 
 The InfiniLink is a modular device that allows generic input and output
-peripherals to communicate with each other in a highly customizable, yet
-intuitive interface.  The modular nature of this project removes many of the
+peripherals to communicate with  each other in a highly customizable, yet
+intuitive web interface.  The modular nature of this project removes many of the
 restrictions that come with traditional I/O control.  Before we get to the nitty
 gritty details, perhaps it may be wise to give a few examples of what InfiniLink
 can do.
@@ -17,6 +17,12 @@ with InfiniLink, you can:
 All these these things --- and many more --- are possible with InfiniLink,
 LinkPeripherals, and a little creativity.
 
+--------------------------------------------------------------------------------
+
+***Note: the links in this document are not working yet and may not even exist
+yet.  As I add more documentation I'll update the links accordingly.***
+
+--------------------------------------------------------------------------------
 
 ### How Does It Work?
 
@@ -32,23 +38,24 @@ potential of InfiniLink.
   by the InfiniLink before being used.  While all LinkPeripherals are required
   to follow the LinkI protocol, simple button switches are an exception to this
   rule as they are simple enough to support and I don't consider them to be,
-  "proper" LinkPeripherals.
+  "proper" LinkPeripherals.  Simple button support exists as an accessibilty
+  feature, and will be treated as an Input with a single boolean input.
 
 - ***OUTPUT Peripherals,*** conversely, are devices that take data from the
   InfiniLink and uses it to perform an action, such as, driving a motor,
   lighting a bulb, sending USB data, playing a sound, etc.  While not strictly
   required, it is recommended that only a high level interface is provided to
-  the InfiniLink, as not to confuse the user with too many variables.  Output
-  peripherals expect certain data types to be received from the InfiniLink and
-  may require inputs to be converted or altered to accept them.
+  the InfiniLink, as not to confuse the end user with too many variables.
+  Output peripherals expect certain data types to be received from the
+  InfiniLink and may require inputs to be converted or altered to accept them.
 
 - ***LOGIC Peripherals*** are *completely optional* devices that can perform
   operations on inputs, like transformations or conversions.  It can be fairly
   assumed that the InfiniLink will handle most operations on its own, however,
   some computing tasks are simply too complex to be handled by the InfiniLink
   directly and require external computing power.  A decent example of this would
-  be FFT calculation.  In most cases, Logic peripherals can be ignored
-  completely.
+  be FFT calculation.  In most cases, Logic peripherals are not necessary, and
+  can be ignored completely.
 
 ***The INFINILINK*** itself is the backbone of the entire system.  It's
 responsibility is to combine all the peripherals together as one cohesive unit.
@@ -56,39 +63,36 @@ This device accepts data from the input, transforms it, and sends it to the
 output as configured.  InfiniLink can be configured through its self-hosted web
 server that gives access to a node based editor, where inputs, logic, and
 outputs can easily be linked together.  Majority of the logic can be performed
-by InfiniLink directly and don't need any logic peripherals.  It is planned to
+by InfiniLink directly and doesn't need any logic peripherals.  It is planned to
 also have an automap system to simplify the configuration process.
 
 
 ### DevPeripheral
 
-The DevPeripheral is a development board for making peripheral prototypes
-quickly and easily.  As it would be difficult to design all the possible
-variations of peripherals myself, I ask of *you, the community* to prototype
-your own peripherals and submit them to me.  While the schematic and BOM is
-included, it is recommended to buy a prebuilt board for convenience.  Everything
-needed to develop your own custom peripheral is located inside the DevPeripheral
-folder, including its schematic, design requirements (for submission), code, and
-more.
+By now, you may have noticed a fatal flaw with this system.  Without
+peripherals, the functionality of InfiniLink is limited at best.  This is one of
+the reasons I've decided to make a peripheral exclusively for prototyping ---
+DevPeripheral.  The DevPeripheral is a development board for making peripheral
+prototypes quickly and easily.  I've designed it to be easily integrated with a
+breadboard and has a profile similar to that of an Arduino Nano.
 
-Submissions are not required to use the DevPeripheral but must be compliant with
-the constraints and guidelines outlined in DevPeripheral/docs/requirements.md
-and DevPeripheral/docs/guidelines.md.  There are no guarentees that your design
-will be reviewed, though I will try my best.  Not all designs reviewed will be
-accepted *but* there is no mechanism to prevent unofficial peripherals from
-working (and there never will) so you may keep using it without issue.
+This is great and all, but even with the DevPeripheral assisting peripheral
+development, my ability to make a large variety of peripherals is too limited.
+My solution to this --- and my second reason for making DevPeripheral --- is to
+create a community driven ecosystem of peripherals.  In other words, I'm asking
+***you*** to help me build this ecosystem by developing your own peripherals.
+It is my hope that together, we can make this a reality.
 
-The legal details are to be determined, though my goal is to allow participants
-to retain ownership of their own designs, outside of the LinkI protocol and the
-content of this repository.  The first roughly 100 Submissions or so will be
-free but eventually I'm going to charge a submission fee to prevent submission
-spamming.  If the design makes 5 times the submission fee, then the fee will be
-refunded.
+I'll link helpful documentation here once it is written.
 
-
-## DISCLAIMER
-
-While I have no intention of deceiving anyone, I acknowledge that the, "work in
-progress" nature of this project may lead to certain features mentioned here to
-cease to exist at any time.  The only thing I guarentee is the promise made to
-respect your ownership over your own designs.
+***02/02/2025** - I'm still trying to work out the kinks with this system from the
+technical side to the legal.  I want to implement a fair system that allows the
+community to freely use their designs, as well as creating an opportunity for
+you to sell your designs.  There will be no restrictions on how you use them
+outside of the business I'm working towards building, but I want to offer to
+showcase and sell your designs with a revenue split in exchange.  You will
+retain ownership of your designs completely and may drop quit at any time.  We
+would be responsible for the manufacture, distribution, and marketing of your
+peripheral(s).  At the time of writing this, I don't have enough information to
+decide the revenue split percentages just yet but the will be determined and
+shared before this program is live.**
