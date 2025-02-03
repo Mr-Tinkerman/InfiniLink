@@ -17,13 +17,6 @@ with InfiniLink, you can:
 All these these things --- and many more --- are possible with InfiniLink,
 LinkPeripherals, and a little creativity.
 
---------------------------------------------------------------------------------
-
-***Note: the links in this document are not working yet and may not even exist
-yet.  As I add more documentation I'll update the links accordingly.***
-
---------------------------------------------------------------------------------
-
 ### How Does It Work?
 
 InfiniLink communicates with LinkPeripherals using the LinkI protocol over an
